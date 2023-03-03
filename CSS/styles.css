@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --main-bg-color: hsl(217, 54%, 11%);
+    --card-bg-color: hsl(216, 50%, 16%);
+    --line-color:hsl(215, 32%, 27%);
+    --para-color: hsl(215, 29%, 62%);
+    --white-color:hsl(0, 0%, 100%);
+    --font-size: 1.8rem; /* 18px */
+    --font-title-size: 2.2rem;
+    --font-para-size: 1.6rem;
+    --font-para-size-responsive: 1.4rem;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-bold: 600;
+    --prices-color:hsl(178, 100%, 50%);
+    
+    --img-hover-bg-color: rgb(0, 255, 247,0.4);
+    --text-hover-color: hsl(178, 100%, 50%);
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    font-size: var(--font-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-bg-color);
+}
+
+.card {
+    max-width: 35rem;
+    height: 59rem;
+    padding: 3rem;
+    background-color: var(--card-bg-color);
+    border-radius: 1.5rem;
+    user-select: none;
+    color: var(--white-color);
+}
+
+.card__image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    background-image: url(../images/image-equilibrium.jpg);
+    
+}
+
+.card__image-hover {
+    display: none;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    top: 0;
+    left: 0;
+    background-color: var(--img-hover-bg-color);
+}
+
+.card__image:hover .card__image-hover {
+    display: flex;
+}
+
+.card__title {
+    cursor: pointer;
+    text-transform: capitalize;
+    margin: 2rem 0;
+    font-size: var(--font-title-size);
+    font-weight: var(--font-weight-bold);
+    transition: all 0.3s ease-in-out;
+}
+
+.card__title:hover{
+    color: var(--text-hover-color);
+}
+
+.card__description {
+    font-weight: var(--font-weight-regular);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    color: var(--para-color);
+}
+.card__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.card__details span {
+    display: flex;
+    align-items: center;
+}
+
+.card__details span:last-child {
+    font-weight: var(--font-weight-regular);
+    color: var(--para-color);
+    font-size: var(--font-para-size);
+}
+.card__details span:not(:last-child) {
+    color: var(--prices-color);
+    font-size: var(--font-para-size);
+}
+
+.line__divider{
+    width: 100%;
+    height: 0.1rem;
+    background-color: var(--line-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+.card__creator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__creator img {
+    border: 1px solid var(--white-color);
+    border-radius: 50%;
+    width: 3rem;
+    margin-right: 1.5rem;
+}
+
+.card__creator p{
+    color: var(--para-color);
+    font-size: var(--font-para-size);
+}   
+.card__creator p span{
+    color: var(--white-color);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+.card__creator p span:hover{
+    color: var(--text-hover-color);
+}
+
+@media (max-width:375px) {
+    .card{
+        max-width: 30rem;
+        height: 51rem;
+    }
+    .card__title {
+        font-size: var(--font-size)
+    }
+
+    .card__description {
+        font-size: var(--font-para-size);
+    }
+
+    .card__details span:not(:last-child),
+    .card__details span:last-child {
+        font-size: var(--font-para-size-responsive);
+    }
+
+    .card__creator img {
+        width: 2.5rem;
+    }
+    .card__creator p{
+        font-size: var(--font-para-size-responsive);
+    }
+        
+}
